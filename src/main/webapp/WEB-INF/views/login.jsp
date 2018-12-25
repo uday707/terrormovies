@@ -6,6 +6,10 @@
 <title>Terror movies </title>
 </head>
 <body>
+   <% if(request.getParameter("error") != null) {
+         out.println("ERROR LOGIN");
+      }
+   %>
    <form action="/j_spring_security_check" method="post">
        Username <input type="text" name="j_username" /><br/>
        Password <input type="text" name="j_password" /><br/>
