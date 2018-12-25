@@ -6,6 +6,7 @@
                         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd ">
  
     <security:http auto-config="true">
+        <security:form-login login-page="/custom_login" />
         <security:intercept-url pattern="/admin/**/*" access="ROLE_ADMIN" />
     </security:http>
 
