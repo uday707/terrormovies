@@ -6,8 +6,9 @@
                         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd ">
  
     <security:http auto-config="true">
-        <security:form-login login-page="/custom_login" />
         <security:intercept-url pattern="/admin/**/*" access="ROLE_ADMIN" />
+        <security:form-login login-page="/custom_login" authentication-failure-handler-ref="serverErrorHandler"
+                             username-parameter="user_param" password-parameter="pass_param" />
     </security:http>
 
     <security:authentication-manager>
@@ -17,4 +18,6 @@
             </security:user-service>
         </security:authentication-provider>
     </security:authentication-manager>
+
+    <bean id="serverErrorHandler" class="com.apress.pss.terrormovies.security.ServerErrorFailureHandler" />
 </beans>
